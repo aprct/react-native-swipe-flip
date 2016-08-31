@@ -1,0 +1,28 @@
+{
+  "name": "react-native-swipe-flip",
+  "version": "1.0.0",
+  "description": "A React Native view component that flips front-to-back in response to swipe gestures.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aprct/react-native-swipe-flip.git"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "flip",
+    "swipe",
+    "view",
+    "swipeflip"
+  ],
+  "author": "Fei Li",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aprct/react-native-swipe-flip/issues"
+  },
+  "homepage": "https://github.com/aprct/react-native-swipe-flip#readme"
+}
