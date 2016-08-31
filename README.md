@@ -7,13 +7,23 @@ A React Native view component that flips front-to-back in response to swipe gest
 npm install react-native-swipe-flip
 ```
 
+## Demo
+![swipeflipdemo](http://i.imgur.com/FJ9YPip.gifv)
+
+## Interaction
+The view will respond to the following swipes:
+* Left
+* Right
+* Up
+* Down
+
 ## Example
 
 ```js
 'use strict';
 
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Easing } from 'react-native';
 
 import SwipeFlip from 'react-native-swipe-flip';
 
