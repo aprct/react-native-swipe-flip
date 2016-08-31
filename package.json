@@ -1,6 +1,6 @@
 {
   "name": "react-native-swipe-flip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React Native view component that flips front-to-back in response to swipe gestures.",
   "main": "index.js",
   "scripts": {
