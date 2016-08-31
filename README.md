@@ -8,7 +8,7 @@ npm install react-native-swipe-flip
 ```
 
 ## Demo
-![swipeflipdemo](http://i.imgur.com/FJ9YPip.gifv)
+![swipeflipdemo](http://i.imgur.com/FJ9YPip.gif)
 
 ## Interaction
 The view will respond to the following swipes:
