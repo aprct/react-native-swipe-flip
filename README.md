@@ -11,11 +11,26 @@ npm install react-native-swipe-flip
 ![swipeflipdemo](http://i.imgur.com/FJ9YPip.gif)
 
 ## Interaction
-The view will respond to the following swipes:
-* Left
-* Right
-* Up
-* Down
+The view will respond to the following swipe directions:
+* `'up'`
+* `'down'`
+* `'left'`
+* `'right'`
+
+Programmatically flip the card by accessing the component via ref:
+```js
+<SwipeFlip ref={(c) => { this.swipeFlip = c; }}
+           style={{ flex: 1 }}
+           front={ this._renderFront() }
+           back={ this._renderBack() }
+           onFlipped={(val) => { console.log('Flipped: ' + val); }}
+           flipEasing={ Easing.out(Easing.ease) }
+           flipDuration={ 500 }
+           perspective={ 1000 } />
+```
+
+Now you can call the `flip(swipeDirection)` method and pass a swipe direction as the parameter:
+`this.swipeFlip.flip('left');`
 
 ## Example
 
@@ -37,12 +52,12 @@ export default class Playground extends React.Component {
         return (
             <View style={{ flex: 1, backgroundColor: '#A5D6A7' }}>
                 <SwipeFlip style={{ flex: 1 }}
-                          front={ this._renderFront() }
-                          back={ this._renderBack() }
-                          onFlipped={(val) => { console.log('Flipped: ' + val); }}
-                          flipEasing={ Easing.out(Easing.ease) }
-                          flipDuration={ 500 }
-                          perspective={ 1000 }/>
+                           front={ this._renderFront() }
+                           back={ this._renderBack() }
+                           onFlipped={(val) => { console.log('Flipped: ' + val); }}
+                           flipEasing={ Easing.out(Easing.ease) }
+                           flipDuration={ 500 }
+                           perspective={ 1000 } />
             </View>
         )
     }

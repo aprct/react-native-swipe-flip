@@ -99,6 +99,10 @@ class SwipeFlip extends Component {
     flip(swipeDirection) {
         this.props.onFlip();
 
+        if( ['up', 'down', 'left', 'right'].indexOf(swipeDirection) === -1 ) {
+            swipeDirection = 'right';
+        }
+
         const nextIsFlipped = !this.state.isFlipped;
 
         const { frontRotation, backRotation } = this._getTargetRenderState(swipeDirection);
