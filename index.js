@@ -32,30 +32,33 @@ class SwipeFlip extends Component {
             frontRotation,
             backRotation,
             isFlipped: props.isFlipped,
+            supressSwipe: props.supressSwipe,
             rotateProperty: 'rotateY'
         };
     }
 
     componentWillMount() {
-        this._panResponder = PanResponder.create({
-            onStartShouldSetPanResponder: (evt, gestureState) => true,
-            onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
-            onMoveShouldSetPanResponder: (evt, gestureState) => true,
-            onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
-            onPanResponderGrant: (evt, gestureState) => {
-                // do stuff on start -- unused
-            },
-            onPanResponderMove: (evt, gestureState) => {
-                // do stuff on move -- unused
-            },
-            onPanResponderTerminationRequest: (evt, gestureState) => true,
-            onPanResponderRelease: (evt, gestureState) => { this._onSwipe(evt, gestureState); },
-            onPanResponderTerminate: (evt, gestureState) => {
-            },
-            onShouldBlockNativeResponder: (evt, gestureState) => {
-                return true;
-            }
-        });
+        if (this.state.supressSwipe == false) {
+            this._panResponder = PanResponder.create({
+                onStartShouldSetPanResponder: (evt, gestureState) => true,
+                onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+                onMoveShouldSetPanResponder: (evt, gestureState) => true,
+                onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
+                onPanResponderGrant: (evt, gestureState) => {
+                    // do stuff on start -- unused
+                },
+                onPanResponderMove: (evt, gestureState) => {
+                    // do stuff on move -- unused
+                },
+                onPanResponderTerminationRequest: (evt, gestureState) => true,
+                onPanResponderRelease: (evt, gestureState) => { this._onSwipe(evt, gestureState); },
+                onPanResponderTerminate: (evt, gestureState) => {
+                },
+                onShouldBlockNativeResponder: (evt, gestureState) => {
+                    return true;
+                }
+            });
+        }
     }
 
     _onSwipe(evt, gestureState) {
@@ -137,6 +140,7 @@ class SwipeFlip extends Component {
 SwipeFlip.defaultProps = {
     style: {},
     flipDuration: 500,
+    supressSwipe: false,
     flipEasing: Easing.out(Easing.ease),
     perspective: 1000,
     onFlip: () => {},
@@ -149,6 +153,7 @@ SwipeFlip.propTypes = {
     flipEasing: PropTypes.func,
     front: PropTypes.object,
     back: PropTypes.object,
+    supressSwipe: PropTypes.bool,
     perspective: PropTypes.number,
     onFlip: PropTypes.func,
     onFlipped: PropTypes.func
